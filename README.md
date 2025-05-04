@@ -1,7 +1,7 @@
 # mutambaphilpersonalsite.github.io
 # Personal Portfolio Website
 
-This is my personal portfolio website created as part of my academic submission for the Odd Semester 2024-25. It showcases my academic background, technical skills, and extracurricular achievements.
+This is my personal portfolio website created as part of my academic submission for the Even Semester 2024-25. It showcases my academic background, technical skills, and extracurricular achievements.
 
 The website is built using **HTML**, **CSS**, and **JavaScript**. It is fully responsive and designed to work on all devices.
 
