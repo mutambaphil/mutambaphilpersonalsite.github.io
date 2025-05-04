@@ -1,125 +1,54 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Philis Felistas Mutamba | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #000000, #0a0f3c);
-  color: #ffffff;
-  line-height: 1.6;
-}
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <img src="grad.jpg" alt="Philis Felistas Mutamba" class="sidebar-pic">
+      <h2>Philis Felistas Mutamba</h2>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#academic">Academic Achievement</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#extracurricular">Extracurricular</a></li>
+    </ul>
+    <div class="social-links">
+      <a href="https://www.instagram.com/felly_mutamba" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/mutamba-philis-76b1601b2" target="_blank">LinkedIn</a>
+      <a href="https://www.facebook.com/share/16PKUvnr8o" target="_blank">Facebook</a>
+    </div>
+  </nav>
 
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background-color: #0a0f3c;
-}
+  <main id="main-content">
+    <header id="home">
+      <h1>Philis Felistas Mutamba</h1>
+      <p class="tagline">Cybersecurity Enthusiast | MCA Student | Tech Explorer</p>
+      <a href="#about" class="btn">View My Work</a>
+    </header>
 
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I was born and raised in Zimbabwe, and I’m in my final year at Galgotias University (MCA, 2023–2025), specializing in Computer Network & Cyber Security.</p>
+      <p>Cybersecurity lights a fire in me—I recently completed Ethical Hacking training with Craw Security and am gearing up for the EC‑Council exam.</p>
+      <p>Physically active and always learning, I combine discipline from workouts with curiosity for tomorrow’s tech challenges.</p>
+    </section>
 
-.hero h1 {
-  font-size: 2.5rem;
-  color: #00aaff;
-}
+    <!-- Future sections (Academic, Projects, etc.) go here -->
 
-.tagline {
-  font-size: 1.2rem;
-  color: #f9c2ff;
-  margin-bottom: 20px;
-}
+    <footer>
+      <p class="address">Flat 1202‑A, C Block, 13th Floor, Casa Grande‑1, Chi V, Greater Noida, India</p>
+      <p>&copy; 2024 Philis Felistas Mutamba</p>
+    </footer>
+  </main>
 
-.cta {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 24px;
-  background-color: #00aaff;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.cta:hover {
-  background-color: #0088cc;
-}
-
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  background-color: #111;
-  flex-wrap: wrap;
-}
-
-.navbar a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.navbar a:hover {
-  background-color: #00aaff;
-  color: #fff;
-}
-
-.about {
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
-
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #f9c2ff;
-}
-
-.about p {
-  margin-bottom: 15px;
-}
-
-.award-pic {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 400px;
-  border: 3px solid #ffffff;
-  border-radius: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #000;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #00aaff;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-footer a:hover {
-  color: #f9c2ff;
-}
-
-.address {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #bbbbbb;
-}
+</body>
+</html>
