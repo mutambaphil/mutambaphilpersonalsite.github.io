@@ -159,3 +159,19 @@ footer a:hover {
   margin-bottom: 10px;
   font-size: 1rem;
 }
+.details-section {
+  padding: 30px 20px;
+  border-top: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.details-section h3 {
+  color: #0077cc;
+  margin-top: 20px;
+}
+
+.details-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
