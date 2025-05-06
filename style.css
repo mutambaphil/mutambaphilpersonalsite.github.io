@@ -178,4 +178,16 @@ footer a:hover {
 .hidden {
   display: none;
 }
+.details-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
 
+.details-section a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.details-section a:hover {
+  text-decoration: underline;
+}
