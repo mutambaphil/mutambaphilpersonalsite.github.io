@@ -66,5 +66,20 @@
     <p>&copy; 2024 Philis Felistas Mutamba</p>
   </footer>
 
+  <script>
+  function showDetail(id) {
+    // Hide all detail sections
+    const sections = document.querySelectorAll('.details-section');
+    sections.forEach(section => section.classList.add('hidden'));
+
+    // Show the clicked one
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.remove('hidden');
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+  
 </body>
 </html>
