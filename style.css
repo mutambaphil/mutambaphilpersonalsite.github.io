@@ -178,6 +178,4 @@ footer a:hover {
 .hidden {
   display: none;
 }
-.details-section {
-  scroll-margin-top: 120px; /* Adjust if your navbar is taller or shorter */
-}
+
