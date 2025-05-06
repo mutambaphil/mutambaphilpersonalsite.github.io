@@ -175,3 +175,6 @@ footer a:hover {
   font-size: 1rem;
   line-height: 1.6;
 }
+.hidden {
+  display: none;
+}
