@@ -191,3 +191,9 @@ footer a:hover {
 .details-section a:hover {
   text-decoration: underline;
 }
+.navbar a.active-link,
+.academic-section a.active-link {
+  color: #007bff; /* You can choose your preferred color */
+  text-decoration: underline;
+  font-weight: bold;
+}
