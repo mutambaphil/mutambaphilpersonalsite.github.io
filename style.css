@@ -292,3 +292,58 @@ footer a:hover {
     font-size: 13px;
   }
 }
+/* Section visibility control */
+.details-section.hidden {
+  display: none;
+}
+
+/* Section title */
+#future-plans h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Each individual plan */
+.plan {
+  background-color: #f9f9f9;
+  border-left: 5px solid #007acc;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.plan:hover {
+  transform: translateY(-3px);
+}
+
+/* Plan headings (with emoji) */
+.plan h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #34495e;
+}
+
+/* Paragraph text */
+.plan p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Optional: for screen reader-friendly emoji */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
