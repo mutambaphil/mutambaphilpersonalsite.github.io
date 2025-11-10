@@ -313,27 +313,27 @@
 
 <script>
   function showDetail(id) {
-    // Hide all detail sections
-    const sections = document.querySelectorAll('.details-section');
-    sections.forEach(section => section.classList.add('hidden'));
+  // Hide all detail sections
+  const sections = document.querySelectorAll('.details-section');
+  sections.forEach(section => section.classList.add('hidden'));
 
-    // Show the clicked one
-    const target = document.getElementById(id);
-    if (target) {
-      target.classList.remove('hidden');
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Remove active-link from all nav and academic links
-    const links = document.querySelectorAll('.navbar a, .academic-section a');
-    links.forEach(link => link.classList.remove('active-link'));
-
-    // Highlight the clicked link
-    const clickedLink = [...links].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
-    if (clickedLink) {
-      clickedLink.classList.add('active-link');
-    }
+  // Show the clicked one
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.remove('hidden');
+    target.scrollIntoView({ behavior: 'smooth' });
   }
+
+  // Remove active-link from all main navbar links only
+  const navLinks = document.querySelectorAll('.navbar a');
+  navLinks.forEach(link => link.classList.remove('active-link'));
+
+  // Highlight the clicked link if it's a main navbar link
+  const clickedLink = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
+  if (clickedLink) {
+    clickedLink.classList.add('active-link');
+  }
+}
 </script>
   
 </body>
