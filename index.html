@@ -358,27 +358,32 @@
 
 <script>
   // Function for main navbar
-  function showDetail(id) {
-    // Hide all major sections
-    const allSections = document.querySelectorAll('.details-section');
-    allSections.forEach(sec => sec.classList.add('hidden'));
+ function showDetail(id) {
+  // Hide all major sections
+  const allSections = document.querySelectorAll('.details-section');
+  allSections.forEach(sec => sec.classList.add('hidden'));
 
-    // Show the selected section
-    const target = document.getElementById(id);
-    if (target) target.classList.remove('hidden');
+  // Show the selected section
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.remove('hidden');
 
-    // Hide academic details when another section is opened
-    if (id !== 'academic') {
-      const academicDetails = document.querySelectorAll('.academic-details .details-section');
-      academicDetails.forEach(sec => sec.classList.add('hidden'));
-    }
-
-    // Highlight active nav link
-    const navLinks = document.querySelectorAll('.navbar a');
-    navLinks.forEach(link => link.classList.remove('active-link'));
-    const clickedNav = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
-    if (clickedNav) clickedNav.classList.add('active-link');
+    // Scroll down smoothly to the section
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  // Hide academic sub-details when another section is opened
+  if (id !== 'academic') {
+    const academicDetails = document.querySelectorAll('.academic-details .details-section');
+    academicDetails.forEach(sec => sec.classList.add('hidden'));
+  }
+
+  // Highlight active navbar link
+  const navLinks = document.querySelectorAll('.navbar a');
+  navLinks.forEach(link => link.classList.remove('active-link'));
+  const clickedNav = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
+  if (clickedNav) clickedNav.classList.add('active-link');
+}
 
   // Function for academic links
   function showAcademicDetail(detailId) {
