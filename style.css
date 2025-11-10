@@ -426,3 +426,8 @@ footer a:hover {
 .project-btn:hover {
   background-color: #0056b3;
 }
+.academic-list a.active-link {
+  font-weight: 600;
+  color: #007bff;
+  text-decoration: underline;
+}
