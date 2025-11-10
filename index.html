@@ -359,7 +359,7 @@
 <script>
   // Function for main navbar
  function showDetail(id) {
-  // Hide all major sections
+  // Hide all sections
   const allSections = document.querySelectorAll('.details-section');
   allSections.forEach(sec => sec.classList.add('hidden'));
 
@@ -368,20 +368,29 @@
   if (target) {
     target.classList.remove('hidden');
 
-    // Scroll down smoothly to the section
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Smooth scroll for all (navbar + academic)
+    const offset = 80; // adjust this if navbar covers top
+    window.scrollTo({
+      top: target.offsetTop - offset,
+      behavior: 'smooth'
+    });
   }
 
-  // Hide academic sub-details when another section is opened
-  if (id !== 'academic') {
-    const academicDetails = document.querySelectorAll('.academic-details .details-section');
+  // Special handling: If 'academic' section clicked,
+  // keep academic list visible, hide individual details
+  if (id === 'academic') {
+    const academicDetails = document.querySelectorAll(
+      '#galgotias, #craw, #cisco, #mdu, #school'
+    );
     academicDetails.forEach(sec => sec.classList.add('hidden'));
   }
 
   // Highlight active navbar link
   const navLinks = document.querySelectorAll('.navbar a');
   navLinks.forEach(link => link.classList.remove('active-link'));
-  const clickedNav = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
+  const clickedNav = [...navLinks].find(link =>
+    link.getAttribute('onclick')?.includes(`'${id}'`)
+  );
   if (clickedNav) clickedNav.classList.add('active-link');
 }
 
