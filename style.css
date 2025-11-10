@@ -371,3 +371,14 @@ footer a:hover {
   line-height: 1.5;
   color: #333;
 }
+.cert-img {
+  width: 250px;  /* medium size on the card */
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer; /* indicates clickable */
+  transition: transform 0.2s;
+}
+
+.cert-img:hover {
+  transform: scale(1.05); /* slight zoom on hover */
+}
