@@ -395,29 +395,33 @@
 }
 
   // Function for academic links
-  function showAcademicDetail(detailId) {
-  // Keep academic list visible
-  document.getElementById('academic').classList.remove('hidden');
+function showAcademicDetail(detailId) {
+  // Make sure the academic list is visible
+  const academicSection = document.getElementById('academic');
+  if (academicSection) academicSection.classList.remove('hidden');
 
-  // Hide all other academic details (but not the list)
-  const detailSections = document.querySelectorAll(
+  // Hide all detail sections (but keep the main academic list visible)
+  const allDetails = document.querySelectorAll(
     '#galgotias, #craw, #cisco, #mdu, #school'
   );
-  detailSections.forEach(sec => sec.classList.add('hidden'));
+  allDetails.forEach(sec => sec.classList.add('hidden'));
 
-  // Show the selected detail section
+  // Show the selected section
   const target = document.getElementById(detailId);
   if (target) {
     target.classList.remove('hidden');
 
-    // Smoothly scroll down to the detail section
-    window.scrollTo({
-      top: target.offsetTop - 70,
-      behavior: 'smooth'
-    });
+    // Delay the scroll slightly to ensure the section is visible
+    setTimeout(() => {
+      const offset = 80; // adjust this if your navbar covers the top
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: 'smooth'
+      });
+    }, 200);
   }
 
-  // Highlight the clicked academic link
+  // Highlight clicked academic link
   const links = document.querySelectorAll('#academic a');
   links.forEach(link => link.classList.remove('active-link'));
   const clickedLink = [...links].find(link =>
