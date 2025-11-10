@@ -372,22 +372,46 @@ function showDetail(id) {
   }
 }
 
-// For academic item clicks
+// Function to show main section
+function showDetail(id) {
+  // Hide all main details sections except academic list
+  const sections = document.querySelectorAll('.details-section');
+  sections.forEach(section => {
+    if (!section.classList.contains('academic-section')) {
+      section.classList.add('hidden');
+    }
+  });
+
+  // Show target section
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.remove('hidden');
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Remove active-link from navbar
+  const navLinks = document.querySelectorAll('.navbar a');
+  navLinks.forEach(link => link.classList.remove('active-link'));
+  const clickedNav = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
+  if (clickedNav) clickedNav.classList.add('active-link');
+}
+
+// Function to show academic details without hiding list
 function showAcademicDetail(detailId) {
   const details = document.querySelectorAll('.academic-details .details-section');
-  details.forEach(sec => sec.classList.add('hidden')); // hide all academic details
+  details.forEach(sec => sec.classList.add('hidden'));
 
   const target = document.getElementById(detailId);
-  if (target) target.classList.remove('hidden'); // show clicked detail
+  if (target) {
+    target.classList.remove('hidden');
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
 
   // Highlight the clicked academic link
   const links = document.querySelectorAll('.academic-list a');
   links.forEach(link => link.classList.remove('active-link'));
   const clickedLink = [...links].find(link => link.getAttribute('onclick')?.includes(`'${detailId}'`));
   if (clickedLink) clickedLink.classList.add('active-link');
-
-  // Scroll to the detail smoothly
-  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
   
