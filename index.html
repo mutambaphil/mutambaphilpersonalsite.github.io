@@ -396,23 +396,35 @@
 
   // Function for academic links
   function showAcademicDetail(detailId) {
-    // Hide all academic details
-    const details = document.querySelectorAll('.academic-details .details-section');
-    details.forEach(sec => sec.classList.add('hidden'));
+  // Keep academic list visible
+  document.getElementById('academic').classList.remove('hidden');
 
-    // Show the clicked one
-    const target = document.getElementById(detailId);
-    if (target) {
-      target.classList.remove('hidden');
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  // Hide all other academic details (but not the list)
+  const detailSections = document.querySelectorAll(
+    '#galgotias, #craw, #cisco, #mdu, #school'
+  );
+  detailSections.forEach(sec => sec.classList.add('hidden'));
 
-    // Highlight clicked academic link
-    const links = document.querySelectorAll('.academic-list a');
-    links.forEach(link => link.classList.remove('active-link'));
-    const clickedLink = [...links].find(link => link.getAttribute('onclick')?.includes(`'${detailId}'`));
-    if (clickedLink) clickedLink.classList.add('active-link');
+  // Show the selected detail section
+  const target = document.getElementById(detailId);
+  if (target) {
+    target.classList.remove('hidden');
+
+    // Smoothly scroll down to the detail section
+    window.scrollTo({
+      top: target.offsetTop - 70,
+      behavior: 'smooth'
+    });
   }
+
+  // Highlight the clicked academic link
+  const links = document.querySelectorAll('#academic a');
+  links.forEach(link => link.classList.remove('active-link'));
+  const clickedLink = [...links].find(link =>
+    link.getAttribute('onclick')?.includes(`'${detailId}'`)
+  );
+  if (clickedLink) clickedLink.classList.add('active-link');
+}
 </script>
   
 </body>
