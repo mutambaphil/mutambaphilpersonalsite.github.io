@@ -37,12 +37,12 @@
   
  <section id="academic" class="details-section hidden">
   <h2>Academic Achievement</h2>
-  <ul>
-    <li><a href="#" onclick="showDetail('galgotias')">Galgotias University – MCA (2023–2025)</a></li>
-    <li><a href="#" onclick="showDetail('craw')">Craw Security – Ethical Hacking (2025)</a></li>
-    <li><a href="#" onclick="showDetail('cisco')">Cisco - Junior Cybersecurity Career Path (2024-2025)</a></li>
-    <li><a href="#" onclick="showDetail('mdu')">Maharshi Dayanand University - BCA (2019-2021)</a></li>
-    <li><a href="#" onclick="showDetail('school')">School – 2011-2016</a></li>
+  <ul class="academic-list">
+    <li><a href="#" onclick="showAcademicDetail('galgotias')">Galgotias University – MCA (2023–2025)</a></li>
+    <li><a href="#" onclick="showAcademicDetail('craw')">Craw Security – Ethical Hacking (2025)</a></li>
+    <li><a href="#" onclick="showAcademicDetail('cisco')">Cisco - Junior Cybersecurity Career Path (2024-2025)</a></li>
+    <li><a href="#" onclick="showAcademicDetail('mdu')">Maharshi Dayanand University - BCA (2019-2021)</a></li>
+    <li><a href="#" onclick="showAcademicDetail('school')">School – 2011-2016</a></li>
   </ul>
 
 
@@ -357,62 +357,48 @@
   </footer>
 
 <script>
-  // For navbar clicks
-function showDetail(id) {
-  const allSections = document.querySelectorAll('.details-section');
-  allSections.forEach(sec => sec.classList.add('hidden')); // hide all sections
+  // Function for main navbar
+  function showDetail(id) {
+    // Hide all major sections
+    const allSections = document.querySelectorAll('.details-section');
+    allSections.forEach(sec => sec.classList.add('hidden'));
 
-  const target = document.getElementById(id);
-  if (target) target.classList.remove('hidden'); // show clicked main section
+    // Show the selected section
+    const target = document.getElementById(id);
+    if (target) target.classList.remove('hidden');
 
-  // Hide academic details if navbar is not 'academic'
-  if (id !== 'academic') {
-    const academicDetails = document.querySelectorAll('.academic-details .details-section');
-    academicDetails.forEach(sec => sec.classList.add('hidden'));
-  }
-}
-
-// Function to show main section
-function showDetail(id) {
-  // Hide all main details sections except academic list
-  const sections = document.querySelectorAll('.details-section');
-  sections.forEach(section => {
-    if (!section.classList.contains('academic-section')) {
-      section.classList.add('hidden');
+    // Hide academic details when another section is opened
+    if (id !== 'academic') {
+      const academicDetails = document.querySelectorAll('.academic-details .details-section');
+      academicDetails.forEach(sec => sec.classList.add('hidden'));
     }
-  });
 
-  // Show target section
-  const target = document.getElementById(id);
-  if (target) {
-    target.classList.remove('hidden');
-    target.scrollIntoView({ behavior: 'smooth' });
+    // Highlight active nav link
+    const navLinks = document.querySelectorAll('.navbar a');
+    navLinks.forEach(link => link.classList.remove('active-link'));
+    const clickedNav = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
+    if (clickedNav) clickedNav.classList.add('active-link');
   }
 
-  // Remove active-link from navbar
-  const navLinks = document.querySelectorAll('.navbar a');
-  navLinks.forEach(link => link.classList.remove('active-link'));
-  const clickedNav = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
-  if (clickedNav) clickedNav.classList.add('active-link');
-}
+  // Function for academic links
+  function showAcademicDetail(detailId) {
+    // Hide all academic details
+    const details = document.querySelectorAll('.academic-details .details-section');
+    details.forEach(sec => sec.classList.add('hidden'));
 
-// Function to show academic details without hiding list
-function showAcademicDetail(detailId) {
-  const details = document.querySelectorAll('.academic-details .details-section');
-  details.forEach(sec => sec.classList.add('hidden'));
+    // Show the clicked one
+    const target = document.getElementById(detailId);
+    if (target) {
+      target.classList.remove('hidden');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
-  const target = document.getElementById(detailId);
-  if (target) {
-    target.classList.remove('hidden');
-    target.scrollIntoView({ behavior: 'smooth' });
+    // Highlight clicked academic link
+    const links = document.querySelectorAll('.academic-list a');
+    links.forEach(link => link.classList.remove('active-link'));
+    const clickedLink = [...links].find(link => link.getAttribute('onclick')?.includes(`'${detailId}'`));
+    if (clickedLink) clickedLink.classList.add('active-link');
   }
-
-  // Highlight the clicked academic link
-  const links = document.querySelectorAll('.academic-list a');
-  links.forEach(link => link.classList.remove('active-link'));
-  const clickedLink = [...links].find(link => link.getAttribute('onclick')?.includes(`'${detailId}'`));
-  if (clickedLink) clickedLink.classList.add('active-link');
-}
 </script>
   
 </body>
