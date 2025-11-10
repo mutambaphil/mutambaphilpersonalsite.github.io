@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -44,9 +44,10 @@
     <li><a href="#" onclick="showDetail('mdu')">Maharshi Dayanand University - BCA (2019-2021)</a></li>
     <li><a href="#" onclick="showDetail('school')">School – 2011-2016</a></li>
   </ul>
-</section>
+
 
 <!-- Detailed sections -->
+<div class="academic-details">  
 <section id="galgotias" class="details-section hidden">
   <h3>Galgotias University, India</h3>
   <p>Pursuing my MCA with a specialization in Computer Networks and Cyber Security has been a transformative journey. Despite being in a new country and initially not knowing Hindi, I received tremendous support from both faculty and fellow students. The lecturers have been exceptionally knowledgeable and approachable, always ready to clarify doubts and encourage deeper learning.</p>
@@ -93,7 +94,8 @@
 
   <p>These early academic years helped shape my discipline, curiosity, and passion for technology — especially during my time at Hartzel, where I first developed an interest in computer science.</p>
 </section>
-
+</div>
+ </section>
   
 <section id="projects" class="details-section hidden">
   <h2>My Projects</h2>
@@ -355,27 +357,37 @@
   </footer>
 
 <script>
-  function showDetail(id) {
-  // Hide all detail sections
-  const sections = document.querySelectorAll('.details-section');
-  sections.forEach(section => section.classList.add('hidden'));
+  // For navbar clicks
+function showDetail(id) {
+  const allSections = document.querySelectorAll('.details-section');
+  allSections.forEach(sec => sec.classList.add('hidden')); // hide all sections
 
-  // Show the clicked one
   const target = document.getElementById(id);
-  if (target) {
-    target.classList.remove('hidden');
-    target.scrollIntoView({ behavior: 'smooth' });
-  }
+  if (target) target.classList.remove('hidden'); // show clicked main section
 
-  // Remove active-link from all main navbar links only
-  const navLinks = document.querySelectorAll('.navbar a');
-  navLinks.forEach(link => link.classList.remove('active-link'));
-
-  // Highlight the clicked link if it's a main navbar link
-  const clickedLink = [...navLinks].find(link => link.getAttribute('onclick')?.includes(`'${id}'`));
-  if (clickedLink) {
-    clickedLink.classList.add('active-link');
+  // Hide academic details if navbar is not 'academic'
+  if (id !== 'academic') {
+    const academicDetails = document.querySelectorAll('.academic-details .details-section');
+    academicDetails.forEach(sec => sec.classList.add('hidden'));
   }
+}
+
+// For academic item clicks
+function showAcademicDetail(detailId) {
+  const details = document.querySelectorAll('.academic-details .details-section');
+  details.forEach(sec => sec.classList.add('hidden')); // hide all academic details
+
+  const target = document.getElementById(detailId);
+  if (target) target.classList.remove('hidden'); // show clicked detail
+
+  // Highlight the clicked academic link
+  const links = document.querySelectorAll('.academic-list a');
+  links.forEach(link => link.classList.remove('active-link'));
+  const clickedLink = [...links].find(link => link.getAttribute('onclick')?.includes(`'${detailId}'`));
+  if (clickedLink) clickedLink.classList.add('active-link');
+
+  // Scroll to the detail smoothly
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
   
